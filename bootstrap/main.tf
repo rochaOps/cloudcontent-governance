@@ -3,6 +3,13 @@ data "aws_caller_identity" "current" {}
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "cloudcontent-governance-tfstate-${data.aws_caller_identity.current.account_id}"
 
+  tags = {
+    Project     = "CloudContent"
+    Environment = "Management"
+    Purpose     = "GovernanceState"
+    ManagedBy   = "Terraform"
+  }
+
   lifecycle {
     prevent_destroy = true
   }

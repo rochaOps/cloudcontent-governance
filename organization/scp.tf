@@ -288,6 +288,7 @@ resource "aws_organizations_policy" "region_guardrail" {
 
         NotAction = [
           "account:*",
+          "budgets:*",
           "cloudfront:*",
           "iam:*",
           "organizations:*",
